@@ -1,0 +1,25 @@
+import type { OneTwoThreeAnimeInfoMeta, OneTwoThreeAnimeSearchMeta } from './123anime';
+import type { KaiEpisodeMeta, KaiInfoMeta, KaiSearchMeta } from './animekai';
+import type { NEpisodeMeta, NInfoMeta, NSearchMeta } from './animenexus';
+import type { OEpisodeMeta, OInfoMeta } from './animeonsen';
+import type { PaheEpisodeMeta, PaheInfoMeta, PaheSearchMeta } from './animepahe';
+import type { AZEpisodeMeta, AZInfoMeta, AZSearchMeta } from './anizone';
+import type { HianimeEpisodeMeta, HianimeInfoMeta, HianimeSearchMeta } from './hianime';
+import type { KEpisodeMeta, KInfoMeta, KSearchMeta, KSourceMeta } from './kickassanime';
+import type { LEpisodeMeta, LInfoMeta, LSearchMeta, LSourcesMeta } from './lunar';
+import type { UniqueEpisodeMeta, UniqueInfoMeta, UniqueSearchMeta } from './uniquestream';
+declare const Anime: {
+    OneTwoThreeAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<OneTwoThreeAnimeSearchMeta, OneTwoThreeAnimeInfoMeta, unknown, unknown>;
+    AnimeParadise: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, unknown, unknown, unknown>;
+    AnimeHeaven: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, unknown, unknown, unknown>;
+    AnimeKai: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<KaiSearchMeta, KaiInfoMeta, KaiEpisodeMeta, unknown>;
+    AnimeNexus: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<NSearchMeta, NInfoMeta, NEpisodeMeta, unknown>;
+    AnimeOnsen: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, OInfoMeta, OEpisodeMeta, unknown>;
+    AnimePahe: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<PaheSearchMeta, PaheInfoMeta, PaheEpisodeMeta, unknown>;
+    AniZone: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<AZSearchMeta, AZInfoMeta, AZEpisodeMeta, unknown>;
+    HiAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<HianimeSearchMeta, HianimeInfoMeta, HianimeEpisodeMeta, unknown>;
+    KickAssAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<KSearchMeta, KInfoMeta, KEpisodeMeta, KSourceMeta>;
+    LunarAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<LSearchMeta, LInfoMeta, LEpisodeMeta, LSourcesMeta>;
+    UniqueStream: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<UniqueSearchMeta, UniqueInfoMeta, UniqueEpisodeMeta, unknown>;
+};
+export { Anime };
