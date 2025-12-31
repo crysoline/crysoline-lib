@@ -9,17 +9,137 @@ import type { KEpisodeMeta, KInfoMeta, KSearchMeta, KSourceMeta } from './kickas
 import type { LEpisodeMeta, LInfoMeta, LSearchMeta, LSourcesMeta } from './lunar';
 import type { UniqueEpisodeMeta, UniqueInfoMeta, UniqueSearchMeta } from './uniquestream';
 declare const Anime: {
-    OneTwoThreeAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<OneTwoThreeAnimeSearchMeta, OneTwoThreeAnimeInfoMeta, unknown, unknown>;
-    AnimeParadise: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, unknown, unknown, unknown>;
-    AnimeHeaven: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, unknown, unknown, unknown>;
-    AnimeKai: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<KaiSearchMeta, KaiInfoMeta, KaiEpisodeMeta, unknown>;
-    AnimeNexus: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<NSearchMeta, NInfoMeta, NEpisodeMeta, unknown>;
-    AnimeOnsen: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<unknown, OInfoMeta, OEpisodeMeta, unknown>;
-    AnimePahe: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<PaheSearchMeta, PaheInfoMeta, PaheEpisodeMeta, unknown>;
-    AniZone: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<AZSearchMeta, AZInfoMeta, AZEpisodeMeta, unknown>;
-    HiAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<HianimeSearchMeta, HianimeInfoMeta, HianimeEpisodeMeta, unknown>;
-    KickAssAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<KSearchMeta, KInfoMeta, KEpisodeMeta, KSourceMeta>;
-    LunarAnime: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<LSearchMeta, LInfoMeta, LEpisodeMeta, LSourcesMeta>;
-    UniqueStream: (apiKey: string) => import("../../helpers/fetch").AnimeFetchModule<UniqueSearchMeta, UniqueInfoMeta, UniqueEpisodeMeta, unknown>;
+    OneTwoThreeAnime: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<OneTwoThreeAnimeSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<OneTwoThreeAnimeInfoMeta, import("../types").Episode<unknown>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<unknown>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimeParadise: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<unknown>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<unknown, import("../types").Episode<unknown>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<unknown>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimeHeaven: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<unknown>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<unknown, import("../types").Episode<unknown>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<unknown>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimeKai: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<KaiSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<KaiInfoMeta, import("../types").Episode<KaiEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<KaiEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimeNexus: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<NSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<NInfoMeta, import("../types").Episode<NEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<NEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimeOnsen: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<unknown>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<OInfoMeta, import("../types").Episode<OEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<OEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AnimePahe: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<PaheSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<PaheInfoMeta, import("../types").Episode<PaheEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<PaheEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    AniZone: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<AZSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<AZInfoMeta, import("../types").Episode<AZEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<AZEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    HiAnime: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<HianimeSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<HianimeInfoMeta, import("../types").Episode<HianimeEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<HianimeEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
+    KickAssAnime: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<KSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<KInfoMeta, import("../types").Episode<KEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<KEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<KSourceMeta>>;
+    };
+    LunarAnime: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<LSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<LInfoMeta, import("../types").Episode<LEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<LEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<LSourcesMeta>>;
+    };
+    UniqueStream: (apiKey: string) => {
+        search: (q: string) => Promise<import("../types").Search<UniqueSearchMeta>[]>;
+        info: (id: string | number) => Promise<import("../types").Info<UniqueInfoMeta, import("../types").Episode<UniqueEpisodeMeta>>>;
+        episodes: (id: string | number) => Promise<import("../types").Episode<UniqueEpisodeMeta>[]>;
+        sources: (params: {
+            id: string | number;
+            episodeId: string | number;
+            subType?: string;
+            server?: string;
+        }) => Promise<import("../types").Source<unknown>>;
+    };
 };
 export { Anime };

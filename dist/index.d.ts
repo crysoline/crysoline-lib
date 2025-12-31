@@ -1,1 +1,1 @@
-export { Anime, Hentai, Manga, Mapper, Meta } from "./core";
+export { Anime, Hentai, Manga, Mapper, Meta } from './core';

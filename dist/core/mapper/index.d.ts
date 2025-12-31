@@ -1,2 +1,7 @@
-declare const Mapper: (apiKey: string) => import("../../helpers/fetch").MapperFetchModule;
+declare const Mapper: (apiKey: string) => {
+    map: (params: {
+        id: number;
+        provider: string;
+    }) => Promise<unknown>;
+};
 export { Mapper };
