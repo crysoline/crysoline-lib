@@ -81,6 +81,13 @@ src/
 
 We welcome contributions! Fork the project, create a new branch, and submit a pull request.
 
+## Support
+You can contact the maintainers of crysoline via the GitHub issues, or [join the discord server](https://dsc.gg/crysoline) (Recommended).
+
+<a href="https://dsc.gg/crysoline">
+   <img src="https://discordapp.com/api/guilds/1399386645601583264/widget.png?style=banner2">
+</a>
+
 ## License
 
 Check the [LICENSE](LICENSE) file for details.

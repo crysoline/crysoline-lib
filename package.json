@@ -1,5 +1,6 @@
 {
   "name": "@crysoline/lib",
+  "description": "The official crysoline library for anime, manga using the Crysoline API",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -21,5 +22,11 @@
     "@biomejs/biome": "2.3.10",
     "typescript": "^5",
     "@types/bun": "latest"
-  }
+  },
+  "keywords": [
+    "crysoline",
+    "anime",
+    "manga",
+    "meta"
+  ]
 }
