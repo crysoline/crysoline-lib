@@ -2,7 +2,7 @@
   "name": "@crysoline/lib",
   "description": "The official crysoline library for anime, manga using the Crysoline API",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
