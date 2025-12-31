@@ -25,6 +25,10 @@ export interface HianimeEpisodeMeta {
   title_jp: string | null;
 }
 
+export interface HianimeServerMeta {
+  data_id: number | null;
+}
+
 export interface HianimeInfoMeta {
   year: number | null;
   score: number | null;

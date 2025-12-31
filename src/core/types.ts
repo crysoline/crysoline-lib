@@ -113,3 +113,10 @@ export interface Source<T = unknown> {
   thumbnails?: string | null;
   metadata?: T | null;
 }
+
+export interface Server<T = unknown> {
+  id?: string | number | null;
+  name?: string | null;
+  type?: string | null;
+  metadata?: T | null;
+}
