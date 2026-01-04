@@ -93,7 +93,7 @@ type BuildRoutes<
   TSourceMeta = unknown,
   TServerMeta = unknown,
   TChapterMeta = unknown,
-> = {
+> = { name: string } & {
   [K in keyof T & keyof RouteMap as T[K] extends true ? K : never]: RouteMap<
     TSearchMeta,
     TInfoMeta,
@@ -172,6 +172,7 @@ export const AnimeFetch = <
     fetcher<Server<TServerMeta>>('servers', params);
 
   return {
+    name: provider,
     search,
     info,
     episodes,
@@ -219,6 +220,7 @@ export const HentaiFetch = <
     fetcher<Server<TServerMeta>>('servers', params);
 
   return {
+    name: provider,
     search,
     info,
     episodes,
@@ -257,6 +259,7 @@ export const MangaFetch = <
     fetcher<Page[]>('pages', params);
 
   return {
+    name: provider,
     search,
     info,
     chapters,
@@ -285,6 +288,7 @@ export const MetaFetch = <
     fetcher<Info<TInfoMeta>>(`info/${encodeURIComponent(id)}`);
 
   return {
+    name: provider,
     search,
     info,
   } as BuildMetaRoutes<S, TSearchMeta, TInfoMeta>;
