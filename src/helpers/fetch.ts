@@ -297,7 +297,7 @@ export const MetaFetch = <
 export const MapperFetch = (config: FetchModuleConfig): BuildRoutes<{ map: true }> => {
   const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
-  const basePath = `${baseUrl}/api/mapper/${provider}/`;
+  const basePath = `${baseUrl}/api/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
   const map = async (params: { id: number; provider: string }) => fetcher<Mapping>('map', params);
