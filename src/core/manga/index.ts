@@ -1,7 +1,15 @@
-import { MangaFetch } from '../../helpers/fetch';
-import type { LMangaInfoMeta, LMangaSearchMeta } from './lunar';
-import type { MDXInfoMeta, MDXSearchMeta } from './mangadex';
-import type { MFInfoMeta, MFSearchMeta } from './mangafire';
+import { MangaFetch } from "../../helpers/fetch";
+import type { COChapterMeta, COInfoMeta, COSearchMeta } from "./comix";
+import type { LMangaInfoMeta, LMangaSearchMeta } from "./lunar";
+import type { MDXInfoMeta, MDXSearchMeta } from "./mangadex";
+import type { MFInfoMeta, MFSearchMeta } from "./mangafire";
+import type { WCInfoMeta, WCSearchMeta } from "./weebcentral";
+
+const Comix = (apiKey: string) =>
+  MangaFetch<COSearchMeta, COInfoMeta, COChapterMeta>({
+    provider: "comix",
+    apiKey,
+  });
 
 /**
  * Creates a LunarManga API client.
@@ -23,7 +31,7 @@ import type { MFInfoMeta, MFSearchMeta } from './mangafire';
  */
 const LunarManga = (apiKey: string) =>
   MangaFetch<LMangaSearchMeta, LMangaInfoMeta>({
-    provider: 'lunarmanga',
+    provider: "lunarmanga",
     apiKey,
   });
 
@@ -49,7 +57,7 @@ const LunarManga = (apiKey: string) =>
  */
 const MangaDex = (apiKey: string) =>
   MangaFetch<MDXSearchMeta, MDXInfoMeta>({
-    provider: 'mangadex',
+    provider: "mangadex",
     apiKey,
   });
 
@@ -69,14 +77,22 @@ const MangaDex = (apiKey: string) =>
  */
 const MangaFire = (apiKey: string) =>
   MangaFetch<MFSearchMeta, MFInfoMeta>({
-    provider: 'mangafire',
+    provider: "mangafire",
+    apiKey,
+  });
+
+const WeebCentral = (apiKey: string) =>
+  MangaFetch<WCSearchMeta, WCInfoMeta>({
+    provider: "weebcentral",
     apiKey,
   });
 
 const Manga = {
+  Comix,
   LunarManga,
   MangaDex,
   MangaFire,
+  WeebCentral,
 };
 
 export { Manga };

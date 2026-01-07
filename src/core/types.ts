@@ -6,14 +6,15 @@ export interface Image {
 }
 
 export interface Title {
-  english?: string | null | undefined;
-  romaji?: string | null | undefined;
-  japanese?: string | null | undefined;
-  native?: string | null | undefined;
+  english?: string | null;
+  romaji?: string | null;
+  japanese?: string | null;
+  native?: string | null;
+  other?: string | null;
 }
 
 export interface Chapter<T = unknown> {
-  id?: string | null;
+  id?: string | number | null;
   title?: string | null;
   number?: number | null;
   rating?: number | null;
@@ -45,7 +46,7 @@ export interface Info<T = unknown, E = unknown> {
   synonyms?: string[] | null;
   description?: string | null;
   image?: Image | null;
-  banner?: Image | null;
+  background?: Image | null;
   logo?: Image | null;
   airedEpisodes?: number | null;
   totalEpisodes?: number | null;
@@ -72,9 +73,9 @@ export interface Search<T = unknown> {
 }
 
 export enum VideoType {
-  HLS = 'hls',
-  DASH = 'dash',
-  MP4 = 'mp4',
+  HLS = "hls",
+  DASH = "dash",
+  MP4 = "mp4",
 }
 
 export interface IntroOutro {
@@ -90,7 +91,7 @@ export interface Download {
 export interface VideoSource {
   url?: string | null;
   isM3U8?: boolean | null;
-  type?: VideoType | null;
+  type?: VideoType | string | null;
   quality?: string | null;
   isDub?: boolean | null;
 }

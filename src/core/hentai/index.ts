@@ -1,8 +1,13 @@
-import { HentaiFetch } from '../../helpers/fetch';
-import type { HianimeEpisodeMeta } from '../anime/hianime';
-import type { HAnimeInfoMeta, HAnimeSearchMeta } from './hanime';
-import type { HavenEpisodeMeta, HavenInfoMeta, HavenSourceMeta } from './hentaihaven';
-import type { HStreamSearchMeta } from './hstream';
+import { HentaiFetch } from "../../helpers/fetch";
+import type { HianimeEpisodeMeta } from "../anime/hianime";
+import type { HAnimeInfoMeta, HAnimeSearchMeta } from "./hanime";
+import type {
+  HavenEpisodeMeta,
+  HavenInfoMeta,
+  HavenSourceMeta,
+} from "./hentaihaven";
+import type { HStreamSearchMeta } from "./hstream";
+import type { WHEpisodeMeta, WHInfoMeta, WHSearchMeta } from "./watchhentai";
 
 /**
  * Creates an HAnime API client.
@@ -20,7 +25,7 @@ import type { HStreamSearchMeta } from './hstream';
  */
 const HAnime = (apiKey: string) =>
   HentaiFetch<HAnimeSearchMeta, HAnimeInfoMeta, HianimeEpisodeMeta>({
-    provider: 'hanime',
+    provider: "hanime",
     apiKey,
   });
 
@@ -42,7 +47,7 @@ const HAnime = (apiKey: string) =>
  */
 const HentaiHaven = (apiKey: string) =>
   HentaiFetch<unknown, HavenInfoMeta, HavenEpisodeMeta, HavenSourceMeta>({
-    provider: 'hentaihaven',
+    provider: "hentaihaven",
     apiKey,
   });
 
@@ -61,7 +66,13 @@ const HentaiHaven = (apiKey: string) =>
  */
 const HStream = (apiKey: string) =>
   HentaiFetch<HStreamSearchMeta>({
-    provider: 'hstream',
+    provider: "hstream",
+    apiKey,
+  });
+
+const WatchHentai = (apiKey: string) =>
+  HentaiFetch<WHSearchMeta, WHInfoMeta, WHEpisodeMeta>({
+    provider: "watchhentai",
     apiKey,
   });
 
@@ -69,6 +80,7 @@ const Hentai = {
   HAnime,
   HentaiHaven,
   HStream,
+  WatchHentai,
 };
 
 export { Hentai };
