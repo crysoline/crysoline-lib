@@ -12,8 +12,8 @@ export interface KaiRelation {
 }
 
 export interface KaiEpisodeMeta {
-  isSub: boolean | null;
-  isDub: boolean | null;
+  sub: boolean | false;
+  dub: boolean | false;
   url: string | null;
 }
 
