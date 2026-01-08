@@ -67,24 +67,79 @@ const OneTwoThreeAnime = (apiKey: string) =>
     apiKey,
   });
 
+/**
+ * Creates an Aniliberty API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = Aniliberty(process.env.API_KEY);
+ * const results = await client.search("one piece");
+ * const info = await client.info(results[0].id);
+ * ```
+ */
 const Aniliberty = (apiKey: string) =>
   AnimeFetch<ALSearchMeta, ALInfoMeta, ALEpisodeMeta>({
     provider: "aniliberty",
     apiKey,
   });
 
+/**
+ * Creates an Anime3rb API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = Anime3rb(process.env.API_KEY);
+ * const info = await client.info("anime-id");
+ * const sources = await client.sources({
+ *   id: "anime-id",
+ *   episodeId: "ep-1"
+ * });
+ * ```
+ */
 const Anime3rb = (apiKey: string) =>
   AnimeFetch<unknown, A3RBInfoMeta, unknown, AnimeRBSrcMeta>({
     provider: "anime3rb",
     apiKey,
   });
 
+/**
+ * Creates an AnimeAV1 API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = AnimeAV1(process.env.API_KEY);
+ * const results = await client.search("naruto");
+ * const episodes = await client.episodes(results[0].id);
+ * ```
+ */
 const AnimeAV1 = (apiKey: string) =>
   AnimeFetch<AVSearchMeta, AVInfoMeta, AVEpisodeMeta, AVSourceMeta>({
     provider: "animeav1",
     apiKey,
   });
 
+/**
+ * Creates an AnimeGG API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = AnimeGG(process.env.API_KEY);
+ * const results = await client.search("tokyo ghoul");
+ * const info = await client.info(results[0].id);
+ * ```
+ */
 const AnimeGG = (apiKey: string) =>
   AnimeFetch<AGGSearchMeta, AGGInfoMeta, AGGEpisodeMeta>({
     provider: "animegg",
@@ -148,6 +203,24 @@ const AnimeKai = (apiKey: string) =>
     apiKey,
   });
 
+/**
+ * Creates an AnimeLib API client.
+ *
+ * **Supports multiple servers for streaming.**
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources, servers
+ *
+ * @example
+ * ```ts
+ * const client = AnimeLib(process.env.API_KEY);
+ * const results = await client.search("dragon ball");
+ * const servers = await client.servers({
+ *   id: results[0].id,
+ *   episodeId: "ep-1"
+ * });
+ * ```
+ */
 const AnimeLib = (apiKey: string) =>
   AnimeFetch<
     ALIBSearchMeta,
@@ -167,6 +240,31 @@ const AnimeLib = (apiKey: string) =>
     apiKey,
   });
 
+/**
+ * Creates an AnimeMeow API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+/**
+ * Creates an AnimeNix API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = AnimeNix(process.env.API_KEY);
+ * const results = await client.search("fate");
+ * const episodes = await client.episodes(results[0].id);
+ * ```
+ */
+ * ```ts
+ * const client = AnimeMeow(process.env.API_KEY);
+ * const results = await client.search("cowboy bebop");
+ * ```
+ */
 const AnimeMeow = (apiKey: string) =>
   AnimeFetch<AnimeMeowSearchMeta>({
     provider: "animemeow",
@@ -357,6 +455,32 @@ const LunarAnime = (apiKey: string) =>
  * @param apiKey - Your API key for authentication
  * @returns API client with methods: search, info, episodes, sources
  *
+/**
+ * Collection of all available anime streaming provider clients.
+ *
+ * Each provider requires an API key for authentication.
+ * All providers share the same interface with methods:
+ * - `search(query)` - Search for anime
+ * - `info(id)` - Get detailed anime information
+ * - `episodes(id)` - Get episode list
+ * - `sources(params)` - Get streaming sources
+ * - `servers(params)` - Get available servers (provider-specific)
+ *
+ * @example
+ * ```ts
+ * import { Anime } from "crysoline";
+ *
+ * const client = Anime.HiAnime(process.env.API_KEY);
+ * const results = await client.search("demon slayer");
+ * const info = await client.info(results[0].id);
+ * const episodes = await client.episodes(results[0].id);
+ * const sources = await client.sources({
+ *   id: results[0].id,
+ *   episodeId: episodes[0].id,
+ *   subType: "sub"
+ * });
+ * ```
+ */
  * @example
  * ```ts
  * const client = UniqueStream(process.env.API_KEY);

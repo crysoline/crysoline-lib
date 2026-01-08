@@ -70,12 +70,49 @@ const HStream = (apiKey: string) =>
     apiKey,
   });
 
+/**
+ * Creates a WatchHentai API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, episodes, sources
+ *
+ * @example
+ * ```ts
+ * const client = WatchHentai(process.env.API_KEY);
+ * const results = await client.search("query");
+ * const episodes = await client.episodes(results[0].id);
+ * ```
+ */
 const WatchHentai = (apiKey: string) =>
   HentaiFetch<WHSearchMeta, WHInfoMeta, WHEpisodeMeta>({
     provider: "watchhentai",
     apiKey,
   });
 
+/**
+ * Collection of all available hentai streaming provider clients.
+ *
+ * Each provider requires an API key for authentication.
+ * All providers share the same interface with methods:
+ * - `search(query)` - Search for content
+ * - `info(id)` - Get detailed information
+ * - `episodes(id)` - Get episode list
+ * - `sources(params)` - Get streaming sources
+ *
+ * @example
+ * ```ts
+ * import { Hentai } from "crysoline";
+ *
+ * const client = Hentai.HAnime(process.env.API_KEY);
+ * const results = await client.search("query");
+ * const info = await client.info(results[0].id);
+ * const episodes = await client.episodes(results[0].id);
+ * const sources = await client.sources({
+ *   id: results[0].id,
+ *   episodeId: episodes[0].id
+ * });
+ * ```
+ */
 const Hentai = {
   HAnime,
   HentaiHaven,

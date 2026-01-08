@@ -5,6 +5,19 @@ import type { MDXInfoMeta, MDXSearchMeta } from "./mangadex";
 import type { MFInfoMeta, MFSearchMeta } from "./mangafire";
 import type { WCInfoMeta, WCSearchMeta } from "./weebcentral";
 
+/**
+ * Creates a Comix API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, chapters, pages
+ *
+ * @example
+ * ```ts
+ * const client = Comix(process.env.API_KEY);
+ * const results = await client.search("batman");
+ * const info = await client.info(results[0].id);
+ * ```
+ */
 const Comix = (apiKey: string) =>
   MangaFetch<COSearchMeta, COInfoMeta, COChapterMeta>({
     provider: "comix",
@@ -81,12 +94,49 @@ const MangaFire = (apiKey: string) =>
     apiKey,
   });
 
+/**
+ * Creates a WeebCentral API client.
+ *
+ * @param apiKey - Your API key for authentication
+ * @returns API client with methods: search, info, chapters, pages
+ *
+ * @example
+ * ```ts
+ * const client = WeebCentral(process.env.API_KEY);
+ * const results = await client.search("naruto");
+ * ```
+ */
 const WeebCentral = (apiKey: string) =>
   MangaFetch<WCSearchMeta, WCInfoMeta>({
     provider: "weebcentral",
     apiKey,
   });
 
+/**
+ * Collection of all available manga reading provider clients.
+ *
+ * Each provider requires an API key for authentication.
+ * All providers share the same interface with methods:
+ * - `search(query)` - Search for manga
+ * - `info(id)` - Get detailed manga information
+ * - `chapters(id)` - Get chapter list
+ * - `pages(params)` - Get chapter pages
+ *
+ * @example
+ * ```ts
+ * import { Manga } from "crysoline";
+ *
+ * const client = Manga.MangaDex(process.env.API_KEY);
+ * const results = await client.search("one piece");
+ * const info = await client.info(results[0].id);
+ * const chapters = await client.chapters(results[0].id);
+ * const pages = await client.pages({
+ *   id: results[0].id,
+ *   chapterId: chapters[0].id,
+ *   lang: "en"
+ * });
+ * ```
+ */
 const Manga = {
   Comix,
   LunarManga,
