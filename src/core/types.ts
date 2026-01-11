@@ -73,9 +73,9 @@ export interface Search<T = unknown> {
 }
 
 export enum VideoType {
-  HLS = "hls",
-  DASH = "dash",
-  MP4 = "mp4",
+  HLS = 'hls',
+  DASH = 'dash',
+  MP4 = 'mp4',
 }
 
 export interface IntroOutro {

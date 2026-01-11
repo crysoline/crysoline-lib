@@ -1,52 +1,26 @@
-import { AnimeFetch } from "../../helpers/fetch";
-import type {
-  OneTwoThreeAnimeInfoMeta,
-  OneTwoThreeAnimeSearchMeta,
-} from "./123anime";
-import type { ALEpisodeMeta, ALInfoMeta, ALSearchMeta } from "./aniliberty";
-import type { A3RBInfoMeta, AnimeRBSrcMeta } from "./anime3rb";
-import type {
-  AVEpisodeMeta,
-  AVInfoMeta,
-  AVSearchMeta,
-  AVSourceMeta,
-} from "./animeav1";
-import type { AGGEpisodeMeta, AGGInfoMeta, AGGSearchMeta } from "./animegg";
-import type { KaiEpisodeMeta, KaiInfoMeta, KaiSearchMeta } from "./animekai";
-import type { ALIBInfoMeta, ALIBSearchMeta } from "./animelib";
-import type { AnimeMeowSearchMeta } from "./animemeow";
-import type { NEpisodeMeta, NInfoMeta, NSearchMeta } from "./animenexus";
-import type { AnimeNixEpisodeMeta, AnimeNixSearchMeta } from "./animenix";
-import type { OEpisodeMeta, OInfoMeta } from "./animeonsen";
-import type {
-  PaheEpisodeMeta,
-  PaheInfoMeta,
-  PaheSearchMeta,
-} from "./animepahe";
-import type { AZEpisodeMeta, AZInfoMeta, AZSearchMeta } from "./anizone";
+import { AnimeFetch } from '../../helpers/fetch';
+import type { OneTwoThreeAnimeInfoMeta, OneTwoThreeAnimeSearchMeta } from './123anime';
+import type { ALEpisodeMeta, ALInfoMeta, ALSearchMeta } from './aniliberty';
+import type { A3RBInfoMeta, AnimeRBSrcMeta } from './anime3rb';
+import type { AVEpisodeMeta, AVInfoMeta, AVSearchMeta, AVSourceMeta } from './animeav1';
+import type { AGGEpisodeMeta, AGGInfoMeta, AGGSearchMeta } from './animegg';
+import type { KaiEpisodeMeta, KaiInfoMeta, KaiSearchMeta } from './animekai';
+import type { ALIBInfoMeta, ALIBSearchMeta } from './animelib';
+import type { AnimeMeowSearchMeta } from './animemeow';
+import type { NEpisodeMeta, NInfoMeta, NSearchMeta } from './animenexus';
+import type { AnimeNixEpisodeMeta, AnimeNixSearchMeta } from './animenix';
+import type { OEpisodeMeta, OInfoMeta } from './animeonsen';
+import type { PaheEpisodeMeta, PaheInfoMeta, PaheSearchMeta } from './animepahe';
+import type { AZEpisodeMeta, AZInfoMeta, AZSearchMeta } from './anizone';
 import type {
   HianimeEpisodeMeta,
   HianimeInfoMeta,
   HianimeSearchMeta,
   HianimeServerMeta,
-} from "./hianime";
-import type {
-  KEpisodeMeta,
-  KInfoMeta,
-  KSearchMeta,
-  KSourceMeta,
-} from "./kickassanime";
-import type {
-  LEpisodeMeta,
-  LInfoMeta,
-  LSearchMeta,
-  LSourcesMeta,
-} from "./lunar";
-import type {
-  UniqueEpisodeMeta,
-  UniqueInfoMeta,
-  UniqueSearchMeta,
-} from "./uniquestream";
+} from './hianime';
+import type { KEpisodeMeta, KInfoMeta, KSearchMeta, KSourceMeta } from './kickassanime';
+import type { LEpisodeMeta, LInfoMeta, LSearchMeta, LSourcesMeta } from './lunar';
+import type { UniqueEpisodeMeta, UniqueInfoMeta, UniqueSearchMeta } from './uniquestream';
 
 /**
  * Creates a 123Anime API client.
@@ -63,31 +37,31 @@ import type {
  */
 const OneTwoThreeAnime = (apiKey: string) =>
   AnimeFetch<OneTwoThreeAnimeSearchMeta, OneTwoThreeAnimeInfoMeta>({
-    provider: "onetwothreeanime",
+    provider: 'onetwothreeanime',
     apiKey,
   });
 
 const Aniliberty = (apiKey: string) =>
   AnimeFetch<ALSearchMeta, ALInfoMeta, ALEpisodeMeta>({
-    provider: "aniliberty",
+    provider: 'aniliberty',
     apiKey,
   });
 
 const Anime3rb = (apiKey: string) =>
   AnimeFetch<unknown, A3RBInfoMeta, unknown, AnimeRBSrcMeta>({
-    provider: "anime3rb",
+    provider: 'anime3rb',
     apiKey,
   });
 
 const AnimeAV1 = (apiKey: string) =>
   AnimeFetch<AVSearchMeta, AVInfoMeta, AVEpisodeMeta, AVSourceMeta>({
-    provider: "animeav1",
+    provider: 'animeav1',
     apiKey,
   });
 
 const AnimeGG = (apiKey: string) =>
   AnimeFetch<AGGSearchMeta, AGGInfoMeta, AGGEpisodeMeta>({
-    provider: "animegg",
+    provider: 'animegg',
     apiKey,
   });
 
@@ -106,7 +80,7 @@ const AnimeGG = (apiKey: string) =>
  */
 const AnimeParadise = (apiKey: string) =>
   AnimeFetch({
-    provider: "animeparadise",
+    provider: 'animeparadise',
     apiKey,
   });
 
@@ -125,7 +99,7 @@ const AnimeParadise = (apiKey: string) =>
  */
 const AnimeHeaven = (apiKey: string) =>
   AnimeFetch({
-    provider: "animeheaven",
+    provider: 'animeheaven',
     apiKey,
   });
 
@@ -144,7 +118,7 @@ const AnimeHeaven = (apiKey: string) =>
  */
 const AnimeKai = (apiKey: string) =>
   AnimeFetch<KaiSearchMeta, KaiInfoMeta, KaiEpisodeMeta>({
-    provider: "animekai",
+    provider: 'animekai',
     apiKey,
   });
 
@@ -163,13 +137,13 @@ const AnimeLib = (apiKey: string) =>
       servers: true;
     }
   >({
-    provider: "animelib",
+    provider: 'animelib',
     apiKey,
   });
 
 const AnimeMeow = (apiKey: string) =>
   AnimeFetch<AnimeMeowSearchMeta>({
-    provider: "animemeow",
+    provider: 'animemeow',
     apiKey,
   });
 
@@ -188,13 +162,13 @@ const AnimeMeow = (apiKey: string) =>
  */
 const AnimeNexus = (apiKey: string) =>
   AnimeFetch<NSearchMeta, NInfoMeta, NEpisodeMeta>({
-    provider: "animenexus",
+    provider: 'animenexus',
     apiKey,
   });
 
 const AnimeNix = (apiKey: string) =>
   AnimeFetch<AnimeNixSearchMeta, unknown, AnimeNixEpisodeMeta>({
-    provider: "animenix",
+    provider: 'animenix',
     apiKey,
   });
 
@@ -213,7 +187,7 @@ const AnimeNix = (apiKey: string) =>
  */
 const AnimeOnsen = (apiKey: string) =>
   AnimeFetch<unknown, OInfoMeta, OEpisodeMeta>({
-    provider: "animeonsen",
+    provider: 'animeonsen',
     apiKey,
   });
 
@@ -232,7 +206,7 @@ const AnimeOnsen = (apiKey: string) =>
  */
 const AnimePahe = (apiKey: string) =>
   AnimeFetch<PaheSearchMeta, PaheInfoMeta, PaheEpisodeMeta>({
-    provider: "animepahe",
+    provider: 'animepahe',
     apiKey,
   });
 
@@ -251,7 +225,7 @@ const AnimePahe = (apiKey: string) =>
  */
 const AniZone = (apiKey: string) =>
   AnimeFetch<AZSearchMeta, AZInfoMeta, AZEpisodeMeta>({
-    provider: "anizone",
+    provider: 'anizone',
     apiKey,
   });
 
@@ -305,7 +279,7 @@ const HiAnime = (apiKey: string) =>
       servers: true;
     }
   >({
-    provider: "hianime",
+    provider: 'hianime',
     apiKey,
   });
 
@@ -327,7 +301,7 @@ const HiAnime = (apiKey: string) =>
  */
 const KickAssAnime = (apiKey: string) =>
   AnimeFetch<KSearchMeta, KInfoMeta, KEpisodeMeta, KSourceMeta>({
-    provider: "kickassanime",
+    provider: 'kickassanime',
     apiKey,
   });
 
@@ -347,7 +321,7 @@ const KickAssAnime = (apiKey: string) =>
  */
 const LunarAnime = (apiKey: string) =>
   AnimeFetch<LSearchMeta, LInfoMeta, LEpisodeMeta, LSourcesMeta>({
-    provider: "lunaranime",
+    provider: 'lunaranime',
     apiKey,
   });
 
@@ -366,7 +340,7 @@ const LunarAnime = (apiKey: string) =>
  */
 const UniqueStream = (apiKey: string) =>
   AnimeFetch<UniqueSearchMeta, UniqueInfoMeta, UniqueEpisodeMeta>({
-    provider: "uniquestream",
+    provider: 'uniquestream',
     apiKey,
   });
 
@@ -393,3 +367,22 @@ const Anime = {
 };
 
 export { Anime };
+
+export * from './123anime';
+export * from './aniliberty';
+export * from './anime3rb';
+export * from './animeav1';
+export * from './animegg';
+export * from './animeheaven';
+export * from './animekai';
+export * from './animelib';
+export * from './animemeow';
+export * from './animenexus';
+export * from './animenix';
+export * from './animeonsen';
+export * from './animepahe';
+export * from './anizone';
+export * from './hianime';
+export * from './kickassanime';
+export * from './lunar';
+export * from './uniquestream';

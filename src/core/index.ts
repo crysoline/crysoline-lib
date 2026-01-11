@@ -1,6 +1,6 @@
-export { Anime } from "./anime";
-export { Hentai } from "./hentai";
-export { Manga } from "./manga";
-export { Mapper } from "./mapper";
-export { Meta } from "./meta";
-export { Extractor } from "./extractors";
+export * from './anime/index';
+export * from './hentai/index';
+export * from './manga/index';
+export * from './mapper/index';
+export * from './meta/index';
+export * from './extractors/index';

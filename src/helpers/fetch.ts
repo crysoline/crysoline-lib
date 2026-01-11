@@ -1,27 +1,16 @@
-import type {
-  KodikEpisodeMeta,
-  KodikTranslation,
-} from "../core/extractors/kodik/types";
-import type { Mapping } from "../core/mapper/types";
-import type {
-  Chapter,
-  Episode,
-  Info,
-  Page,
-  Search,
-  Server,
-  Source,
-} from "../core/types";
+import type { KodikEpisodeMeta, KodikTranslation } from '../core/extractors/kodik/types';
+import type { Mapping } from '../core/mapper/types';
+import type { Chapter, Episode, Info, Page, Search, Server, Source } from '../core/types';
 
 type FetchFn = <T>(
   path: string,
-  params?: Record<string, string | number | undefined>,
+  params?: Record<string, string | number | undefined>
 ) => Promise<T>;
 
 const fetchFn = (baseUrl: string, apiKey: string): FetchFn => {
   return async <T>(
     path: string,
-    params?: Record<string, string | number | undefined>,
+    params?: Record<string, string | number | undefined>
   ): Promise<T> => {
     const url = new URL(baseUrl + path);
 
@@ -35,14 +24,12 @@ const fetchFn = (baseUrl: string, apiKey: string): FetchFn => {
 
     const res = await fetch(url.toString(), {
       headers: {
-        "x-api-key": apiKey,
+        'x-api-key': apiKey,
       },
     });
 
     if (!res.ok) {
-      throw new Error(
-        `Failed (${res.status}) (${res.statusText}) on ${url.pathname}`,
-      );
+      throw new Error(`Failed (${res.status}) (${res.statusText}) on ${url.pathname}`);
     }
 
     return res.json() as Promise<T>;
@@ -51,13 +38,9 @@ const fetchFn = (baseUrl: string, apiKey: string): FetchFn => {
 
 type SearchRoute<T = unknown> = (q: string) => Promise<Search<T>[]>;
 
-type InfoRoute<T = unknown, E = unknown> = (
-  id: string | number,
-) => Promise<Info<T, E>>;
+type InfoRoute<T = unknown, E = unknown> = (id: string | number) => Promise<Info<T, E>>;
 
-type EpisodesRoute<T = unknown> = (
-  id: string | number,
-) => Promise<Episode<T>[]>;
+type EpisodesRoute<T = unknown> = (id: string | number) => Promise<Episode<T>[]>;
 
 type SourcesRoute<T> = (params: {
   id: string | number;
@@ -71,9 +54,7 @@ type ServersRoute<T> = (params: {
   episodeId: string | number;
 }) => Promise<Server<T>>;
 
-type ChaptersRoute<T = unknown> = (
-  id: string | number,
-) => Promise<Chapter<T>[]>;
+type ChaptersRoute<T = unknown> = (id: string | number) => Promise<Chapter<T>[]>;
 
 type PagesRoute = (params: {
   id: string | number;
@@ -134,29 +115,14 @@ type BuildAnimeRoutes<
   TEpisodeMeta = unknown,
   TSourceMeta = unknown,
   TServerMeta = unknown,
-> = BuildRoutes<
-  T,
-  TSearchMeta,
-  TInfoMeta,
-  TEpisodeMeta,
-  TSourceMeta,
-  TServerMeta
->;
+> = BuildRoutes<T, TSearchMeta, TInfoMeta, TEpisodeMeta, TSourceMeta, TServerMeta>;
 
 type BuildMangaRoutes<
   T extends SelectRoutes,
   TSearchMeta = unknown,
   TInfoMeta = unknown,
   TChapterMeta = unknown,
-> = BuildRoutes<
-  T,
-  TSearchMeta,
-  TInfoMeta,
-  unknown,
-  unknown,
-  unknown,
-  TChapterMeta
->;
+> = BuildRoutes<T, TSearchMeta, TInfoMeta, unknown, unknown, unknown, TChapterMeta>;
 
 type BuildMetaRoutes<
   T extends SelectRoutes,
@@ -184,27 +150,17 @@ export const AnimeFetch = <
     sources: true;
   },
 >(
-  config: FetchModuleConfig,
-): BuildAnimeRoutes<
-  S,
-  TSearchMeta,
-  TInfoMeta,
-  TEpisodeMeta,
-  TSourceMeta,
-  TServerMeta
-> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+  config: FetchModuleConfig
+): BuildAnimeRoutes<S, TSearchMeta, TInfoMeta, TEpisodeMeta, TSourceMeta, TServerMeta> => {
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/api/anime/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
-  const search = async (q: string) =>
-    fetcher<Search<TSearchMeta>[]>("search", { q });
+  const search = async (q: string) => fetcher<Search<TSearchMeta>[]>('search', { q });
 
   const info = async (id: string | number) =>
-    fetcher<Info<TInfoMeta, Episode<TEpisodeMeta>>>(
-      `info/${encodeURIComponent(id)}`,
-    );
+    fetcher<Info<TInfoMeta, Episode<TEpisodeMeta>>>(`info/${encodeURIComponent(id)}`);
 
   const episodes = async (id: string | number) =>
     fetcher<Episode<TEpisodeMeta>[]>(`episodes/${encodeURIComponent(id)}`);
@@ -214,12 +170,10 @@ export const AnimeFetch = <
     episodeId: string | number;
     subType?: string;
     server?: string;
-  }) => fetcher<Source<TSourceMeta>>("sources", params);
+  }) => fetcher<Source<TSourceMeta>>('sources', params);
 
-  const servers = (params: {
-    id: string | number;
-    episodeId: string | number;
-  }) => fetcher<Server<TServerMeta>>("servers", params);
+  const servers = (params: { id: string | number; episodeId: string | number }) =>
+    fetcher<Server<TServerMeta>>('servers', params);
 
   return {
     name: provider,
@@ -228,14 +182,7 @@ export const AnimeFetch = <
     episodes,
     sources,
     servers,
-  } as BuildAnimeRoutes<
-    S,
-    TSearchMeta,
-    TInfoMeta,
-    TEpisodeMeta,
-    TSourceMeta,
-    TServerMeta
-  >;
+  } as BuildAnimeRoutes<S, TSearchMeta, TInfoMeta, TEpisodeMeta, TSourceMeta, TServerMeta>;
 };
 
 export const HentaiFetch = <
@@ -251,27 +198,17 @@ export const HentaiFetch = <
     sources: true;
   },
 >(
-  config: FetchModuleConfig,
-): BuildAnimeRoutes<
-  S,
-  TSearchMeta,
-  TInfoMeta,
-  TEpisodeMeta,
-  TSourceMeta,
-  TServerMeta
-> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+  config: FetchModuleConfig
+): BuildAnimeRoutes<S, TSearchMeta, TInfoMeta, TEpisodeMeta, TSourceMeta, TServerMeta> => {
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/api/hentai/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
-  const search = async (q: string) =>
-    fetcher<Search<TSearchMeta>[]>("search", { q });
+  const search = async (q: string) => fetcher<Search<TSearchMeta>[]>('search', { q });
 
   const info = async (id: string | number) =>
-    fetcher<Info<TInfoMeta, Episode<TEpisodeMeta>>>(
-      `info/${encodeURIComponent(id)}`,
-    );
+    fetcher<Info<TInfoMeta, Episode<TEpisodeMeta>>>(`info/${encodeURIComponent(id)}`);
 
   const episodes = async (id: string | number) =>
     fetcher<Episode<TEpisodeMeta>[]>(`episodes/${encodeURIComponent(id)}`);
@@ -281,12 +218,10 @@ export const HentaiFetch = <
     episodeId: string | number;
     subType?: string;
     server?: string;
-  }) => fetcher<Source<TSourceMeta>>("sources", params);
+  }) => fetcher<Source<TSourceMeta>>('sources', params);
 
-  const servers = (params: {
-    id: string | number;
-    episodeId: string | number;
-  }) => fetcher<Server<TServerMeta>>("servers", params);
+  const servers = (params: { id: string | number; episodeId: string | number }) =>
+    fetcher<Server<TServerMeta>>('servers', params);
 
   return {
     name: provider,
@@ -295,14 +230,7 @@ export const HentaiFetch = <
     episodes,
     sources,
     servers,
-  } as BuildAnimeRoutes<
-    S,
-    TSearchMeta,
-    TInfoMeta,
-    TEpisodeMeta,
-    TSourceMeta,
-    TServerMeta
-  >;
+  } as BuildAnimeRoutes<S, TSearchMeta, TInfoMeta, TEpisodeMeta, TSourceMeta, TServerMeta>;
 };
 
 export const MangaFetch = <
@@ -316,15 +244,14 @@ export const MangaFetch = <
     pages: true;
   },
 >(
-  config: FetchModuleConfig,
+  config: FetchModuleConfig
 ): BuildMangaRoutes<S, TSearchMeta, TInfoMeta, TChapterMeta> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/api/manga/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
-  const search = async (q: string) =>
-    fetcher<Search<TSearchMeta>[]>("search", { q });
+  const search = async (q: string) => fetcher<Search<TSearchMeta>[]>('search', { q });
 
   const info = async (id: string | number) =>
     fetcher<Info<TInfoMeta>>(`info/${encodeURIComponent(id)}`);
@@ -332,11 +259,8 @@ export const MangaFetch = <
   const chapters = async (id: string | number) =>
     fetcher<Chapter<TChapterMeta>[]>(`chapters/${encodeURIComponent(id)}`);
 
-  const pages = (params: {
-    id: string | number;
-    chapterId: string | number;
-    lang?: string;
-  }) => fetcher<Page[]>("pages", params);
+  const pages = (params: { id: string | number; chapterId: string | number; lang?: string }) =>
+    fetcher<Page[]>('pages', params);
 
   return {
     name: provider,
@@ -355,15 +279,14 @@ export const MetaFetch = <
     info: true;
   },
 >(
-  config: FetchModuleConfig,
+  config: FetchModuleConfig
 ): BuildMetaRoutes<S, TSearchMeta, TInfoMeta> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/api/meta/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
-  const search = async (q: string) =>
-    fetcher<Search<TSearchMeta>[]>("search", { q });
+  const search = async (q: string) => fetcher<Search<TSearchMeta>[]>('search', { q });
 
   const info = async (id: string | number) =>
     fetcher<Info<TInfoMeta>>(`info/${encodeURIComponent(id)}`);
@@ -375,16 +298,13 @@ export const MetaFetch = <
   } as BuildMetaRoutes<S, TSearchMeta, TInfoMeta>;
 };
 
-export const MapperFetch = (
-  config: FetchModuleConfig,
-): BuildRoutes<{ map: true }> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+export const MapperFetch = (config: FetchModuleConfig): BuildRoutes<{ map: true }> => {
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/api/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
 
-  const map = async (params: { id: number; provider: string }) =>
-    fetcher<Mapping>("map", params);
+  const map = async (params: { id: number; provider: string }) => fetcher<Mapping>('map', params);
 
   return {
     map,
@@ -392,9 +312,9 @@ export const MapperFetch = (
 };
 
 export const KodikFetch = (
-  config: FetchModuleConfig,
+  config: FetchModuleConfig
 ): BuildRoutes<{ episodes: true; translations: true; sources: true }> => {
-  const { baseUrl = "https://api.crysoline.moe", provider, apiKey } = config;
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
 
   const basePath = `${baseUrl}/extractor/${provider}/`;
   const fetcher = fetchFn(basePath, apiKey);
@@ -407,7 +327,7 @@ export const KodikFetch = (
     episodeId: string | number;
     subType?: string;
     server?: string;
-  }) => fetcher<Source>("sources", params);
+  }) => fetcher<Source>('sources', params);
 
   const translations = (id: string | number) =>
     fetcher<KodikTranslation[]>(`translations/${encodeURIComponent(id)}`);

@@ -1,11 +1,11 @@
-import { MetaFetch } from "../../helpers/fetch";
-import type { AnilistInfoMeta, AnilistSearchMeta } from "./anilist";
-import type { MInfoMeta, MSearchMeta } from "./myanimelist";
-import type { MMLInfoMeta, MMSearchMeta } from "./mymangalist";
+import { MetaFetch } from '../../helpers/fetch';
+import type { AnilistInfoMeta, AnilistSearchMeta } from './anilist';
+import type { MInfoMeta, MSearchMeta } from './myanimelist';
+import type { MMLInfoMeta, MMSearchMeta } from './mymangalist';
 
 const Anilist = (apiKey: string) =>
   MetaFetch<AnilistSearchMeta, AnilistInfoMeta>({
-    provider: "anilist",
+    provider: 'anilist',
     apiKey,
   });
 
@@ -31,7 +31,7 @@ const Anilist = (apiKey: string) =>
  */
 const MyAnimeList = (apiKey: string) =>
   MetaFetch<MSearchMeta, MInfoMeta>({
-    provider: "myanimelist",
+    provider: 'myanimelist',
     apiKey,
   });
 
@@ -57,7 +57,7 @@ const MyAnimeList = (apiKey: string) =>
  */
 const MyMangaList = (apiKey: string) =>
   MetaFetch<MMSearchMeta, MMLInfoMeta>({
-    provider: "mymangalist",
+    provider: 'mymangalist',
     apiKey,
   });
 
@@ -68,3 +68,7 @@ const Meta = {
 };
 
 export { Meta };
+
+export * from './anilist';
+export * from './myanimelist';
+export * from './mymangalist';

@@ -28,3 +28,5 @@ const Mapper = (apiKey: string) =>
   });
 
 export { Mapper };
+
+export * from './types';
