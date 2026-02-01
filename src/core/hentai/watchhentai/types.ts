@@ -1,9 +1,9 @@
-export interface WHSearchMeta {
+export interface WatchHentaiSearchMeta {
   type: string | null;
   year: number | null;
 }
 
-export interface WHInfoMeta {
+export interface WatchHentaiInfoMeta {
   airDate: string | null;
   endDate: string | null;
   seasons: number | null;
@@ -13,6 +13,6 @@ export interface WHInfoMeta {
   screenshots: string[] | null;
 }
 
-export interface WHEpisodeMeta {
+export interface WatchHentaiEpisodeMeta {
   date: string | null;
 }

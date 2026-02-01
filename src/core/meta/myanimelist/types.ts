@@ -1,38 +1,38 @@
-export interface MLink {
+export interface MyAnimeListLink {
   label: string | null;
   url: string | null;
 }
 
-export interface MRelation {
+export interface MyAnimeListRelation {
   id: number | null;
   image: string | null;
   title: string | null;
   relationType: string | null;
 }
 
-export interface MCharacter {
+export interface MyAnimeListCharacter {
   id: number | null;
   image: string | null;
   name: string | null;
   role: string | null;
-  voiceActors: MVoiceActor[] | null;
+  voiceActors: MyAnimeListVoiceActor[] | null;
 }
 
-export interface MVoiceActor {
+export interface MyAnimeListVoiceActor {
   id: number | null;
   image: string | null;
   name: string | null;
   language: string | null;
 }
 
-export interface MStaff {
+export interface MyAnimeListStaff {
   id: number | null;
   image: string | null;
   name: string | null;
   role: string | null;
 }
 
-export interface MVideo {
+export interface MyAnimeListVideo {
   title: string;
   url: string;
   thumbnail: string | null;
@@ -40,13 +40,13 @@ export interface MVideo {
   type: 'trailer' | 'music';
 }
 
-export interface MSearchMeta {
+export interface MyAnimeListSearchMeta {
   type: string | null;
   score: string | null;
   members: string | null;
 }
 
-export interface MInfoMeta {
+export interface MyAnimeListInfoMeta {
   moreInfo: string | null;
   score: string | null;
   rank: string | null;
@@ -67,10 +67,10 @@ export interface MInfoMeta {
   duration: string | null;
   rating: string | null;
   favorites: string | null;
-  externalLinks: MLink[] | null;
-  streamingLinks: MLink[] | null;
-  relations: MRelation[] | null;
-  characters: MCharacter[] | null;
-  videos: MVideo[] | null;
-  staff: MStaff[] | null;
+  externalLinks: MyAnimeListLink[] | null;
+  streamingLinks: MyAnimeListLink[] | null;
+  relations: MyAnimeListRelation[] | null;
+  characters: MyAnimeListCharacter[] | null;
+  videos: MyAnimeListVideo[] | null;
+  staff: MyAnimeListStaff[] | null;
 }

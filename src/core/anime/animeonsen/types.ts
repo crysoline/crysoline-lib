@@ -1,27 +1,27 @@
-export interface OBroadcast {
+export interface AnimeOnsenBroadcast {
   day_of_the_week: string;
   start_time: string;
 }
 
-export interface OGenre {
+export interface AnimeOnsenGenre {
   id: number;
   name: string;
 }
 
-export interface OStudio {
+export interface AnimeOnsenStudio {
   id: number;
   name: string;
 }
 
-export interface OEpisodeMeta {
+export interface AnimeOnsenEpisodeMeta {
   title_jp: string | null;
 }
 
-export interface OInfoMeta {
+export interface AnimeOnsenInfoMeta {
   score: number | null;
   rating: string | null;
   type: string | null;
-  broadcast: OBroadcast | null;
-  genres: Array<OGenre> | null;
-  studios: Array<OStudio> | null;
+  broadcast: AnimeOnsenBroadcast | null;
+  genres: AnimeOnsenGenre[] | null;
+  studios: AnimeOnsenStudio[] | null;
 }

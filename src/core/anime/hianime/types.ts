@@ -1,4 +1,4 @@
-export interface HianimeTvInfo {
+export interface HiAnimeTvInfo {
   rating: string | null;
   quality: string | null;
   sub: number | null;
@@ -7,7 +7,7 @@ export interface HianimeTvInfo {
   duration: string | null;
 }
 
-export interface HianimeSeason {
+export interface HiAnimeSeason {
   id: string | null;
   data_number: number | null;
   data_id: number | null;
@@ -16,20 +16,20 @@ export interface HianimeSeason {
   image: string | null;
 }
 
-export interface HianimeSearchMeta {
+export interface HiAnimeSearchMeta {
   duration: string | null;
-  tvInfo: Partial<HianimeTvInfo>;
+  tvInfo: Partial<HiAnimeTvInfo>;
 }
 
-export interface HianimeEpisodeMeta {
+export interface HiAnimeEpisodeMeta {
   title_jp: string | null;
 }
 
-export interface HianimeServerMeta {
+export interface HiAnimeServerMeta {
   data_id: number | null;
 }
 
-export interface HianimeInfoMeta {
+export interface HiAnimeInfoMeta {
   year: number | null;
   score: number | null;
   season: string | null;
@@ -44,5 +44,5 @@ export interface HianimeInfoMeta {
   genres: string[] | null;
   studios: string[] | null;
   producers: string[] | null;
-  seasons: HianimeSeason[] | null;
+  seasons: HiAnimeSeason[] | null;
 }

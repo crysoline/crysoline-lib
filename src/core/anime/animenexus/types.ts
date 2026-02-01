@@ -1,48 +1,48 @@
-export interface NGenre {
+export interface AnimeNexusGenre {
   id: string;
   name: string;
   code: string;
 }
 
-export interface NProducer {
+export interface AnimeNexusProducer {
   id: string;
   name: string;
 }
 
-export interface NStudio {
+export interface AnimeNexusStudio {
   id: string;
   name: string;
 }
 
-export interface NDemographic {
+export interface AnimeNexusDemographic {
   id: string;
   name: string;
   code: string;
 }
 
-export interface NImage {
+export interface AnimeNexusImage {
   resized: Record<string, string>;
   resized_blur: Record<string, string>;
 }
 
-export interface NRelationShow {
+export interface AnimeNexusRelationShow {
   id: string;
   name: string | null;
   slug: string;
   relation: string;
-  poster: NImage;
+  poster: AnimeNexusImage;
 }
 
-export interface NSearchMeta {
+export interface AnimeNexusSearchMeta {
   year: number | null;
   type: string | null;
   status: string | null;
   rating: string | null;
   slug: string | null;
-  genres: NGenre[];
+  genres: AnimeNexusGenre[];
 }
 
-export interface NInfoMeta {
+export interface AnimeNexusInfoMeta {
   year: number | null;
   score: number | null;
   season: string | null;
@@ -55,14 +55,14 @@ export interface NInfoMeta {
   endDate: string | null;
   releaseDay: string | null;
   broadcast: string | null;
-  genres: NGenre[];
-  producers: NProducer[];
-  studios: NStudio[];
-  demographics: NDemographic[];
-  relations: NRelationShow[];
+  genres: AnimeNexusGenre[];
+  producers: AnimeNexusProducer[];
+  studios: AnimeNexusStudio[];
+  demographics: AnimeNexusDemographic[];
+  relations: AnimeNexusRelationShow[];
 }
 
-export interface NEpisodeMeta {
+export interface AnimeNexusEpisodeMeta {
   subtitle_languages: string[];
   audio_languages: string[];
   status: string | null;

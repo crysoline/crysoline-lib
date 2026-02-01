@@ -1,17 +1,17 @@
-export interface COSearchMeta {
+export interface ComixSearchMeta {
   slug: string | null;
   status: string | null;
   latestChapter: number | null;
   nsfw: boolean | false;
 }
 
-export interface COInfoMeta {
+export interface ComixInfoMeta {
   slug: string | null;
   status: string | null;
   latestChapter: number | null;
   nsfw: boolean | false;
 }
 
-export interface COChapterMeta {
+export interface ComixChapterMeta {
   official: boolean;
 }

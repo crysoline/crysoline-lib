@@ -1,4 +1,4 @@
-export interface UniqueInfoMeta {
+export interface UniqueStreamInfoMeta {
   duration: string | null;
   url: string | null;
   audioLocales: string[];
@@ -13,11 +13,11 @@ export interface UniqueInfoMeta {
   }>;
 }
 
-export interface UniqueEpisodeMeta {
+export interface UniqueStreamEpisodeMeta {
   duration_ms: number | null;
 }
 
-export interface UniqueSearchMeta {
+export interface UniqueStreamSearchMeta {
   type: string | null;
   subbed: boolean;
   dubbed: boolean;

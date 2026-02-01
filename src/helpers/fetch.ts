@@ -271,6 +271,44 @@ export const MangaFetch = <
   } as BuildMangaRoutes<S, TSearchMeta, TInfoMeta, TChapterMeta>;
 };
 
+export const NovelFetch = <
+  TSearchMeta = unknown,
+  TInfoMeta = unknown,
+  TChapterMeta = unknown,
+  S extends SelectRoutes = {
+    search: true;
+    info: true;
+    chapters: true;
+    pages: true;
+  },
+>(
+  config: FetchModuleConfig
+): BuildMangaRoutes<S, TSearchMeta, TInfoMeta, TChapterMeta> => {
+  const { baseUrl = 'https://api.crysoline.moe', provider, apiKey } = config;
+
+  const basePath = `${baseUrl}/api/novels/${provider}/`;
+  const fetcher = fetchFn(basePath, apiKey);
+
+  const search = async (q: string) => fetcher<Search<TSearchMeta>[]>('search', { q });
+
+  const info = async (id: string | number) =>
+    fetcher<Info<TInfoMeta>>(`info/${encodeURIComponent(id)}`);
+
+  const chapters = async (id: string | number) =>
+    fetcher<Chapter<TChapterMeta>[]>(`chapters/${encodeURIComponent(id)}`);
+
+  const pages = (params: { id: string | number; chapterId: string | number; lang?: string }) =>
+    fetcher<Page[]>('pages', params);
+
+  return {
+    name: provider,
+    search,
+    info,
+    chapters,
+    pages,
+  } as BuildMangaRoutes<S, TSearchMeta, TInfoMeta, TChapterMeta>;
+};
+
 export const MetaFetch = <
   TSearchMeta = unknown,
   TInfoMeta = unknown,

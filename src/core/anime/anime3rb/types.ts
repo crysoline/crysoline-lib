@@ -1,8 +1,8 @@
-export interface A3RBInfoMeta {
+export interface Anime3RBInfoMeta {
   airdate: string | null;
   genres: string[];
 }
 
-export interface AnimeRBSrcMeta {
+export interface Anime3RBSourceMeta {
   posters: string[];
 }

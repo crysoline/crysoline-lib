@@ -1,4 +1,4 @@
-export interface KaiRelation {
+export interface AnimeKaiRelation {
   id: string;
   title: string;
   url: string;
@@ -11,13 +11,13 @@ export interface KaiRelation {
   episodes?: number;
 }
 
-export interface KaiEpisodeMeta {
+export interface AnimeKaiEpisodeMeta {
   sub: boolean | false;
   dub: boolean | false;
   url: string | null;
 }
 
-export interface KaiInfoMeta {
+export interface AnimeKaiInfoMeta {
   ani_id: string | null;
   type: string | null;
   url: string | null;
@@ -28,10 +28,10 @@ export interface KaiInfoMeta {
   status: string | null;
   season: string | null;
   genres: string[] | null;
-  relations: KaiRelation[] | null;
+  relations: AnimeKaiRelation[] | null;
 }
 
-export interface KaiSearchMeta {
+export interface AnimeKaiSearchMeta {
   sub: number | null;
   dub: number | null;
   type: string | null;

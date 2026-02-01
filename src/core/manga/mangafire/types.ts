@@ -1,11 +1,11 @@
-export interface MFLanguage {
+export interface MangaFireLanguage {
   id: string | null;
   code: string | null;
   title: string | null;
   chapters: number | null;
 }
 
-export interface MFSearchMeta {
+export interface MangaFireSearchMeta {
   type?: string;
   imageUrl?: string;
   status?: string;
@@ -13,12 +13,12 @@ export interface MFSearchMeta {
   volume?: string;
 }
 
-export interface MFInfoMeta {
+export interface MangaFireInfoMeta {
   status: string | null;
   type: string | null;
   author: string | null;
   published: string | null;
   genres: string[] | null;
   mangazines: string[] | null;
-  languages: MFLanguage[] | null;
+  languages: MangaFireLanguage[] | null;
 }

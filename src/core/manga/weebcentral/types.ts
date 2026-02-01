@@ -1,9 +1,9 @@
-export interface WCLink {
+export interface WeebCentralLink {
   source: string | null;
   id: string | null;
 }
 
-export interface WCSearchMeta {
+export interface WeebCentralSearchMeta {
   year: number | null;
   status: string | null;
   type: string | null;
@@ -11,7 +11,7 @@ export interface WCSearchMeta {
   tags: string[] | null;
 }
 
-export interface WCInfoMeta {
+export interface WeebCentralInfoMeta {
   year: number | null;
   status: string | null;
   type: string | null;
@@ -20,5 +20,5 @@ export interface WCInfoMeta {
   adult: boolean | false;
   authors: string[] | null;
   tags: string[] | null;
-  links: WCLink[] | null;
+  links: WeebCentralLink[] | null;
 }

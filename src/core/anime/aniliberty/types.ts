@@ -1,4 +1,4 @@
-export interface ALSearchMeta {
+export interface AnilibertySearchMeta {
   type: string | null;
   season: string | null;
   alias: string | null;
@@ -7,7 +7,7 @@ export interface ALSearchMeta {
   genres: string[] | null;
 }
 
-export interface ALInfoMeta {
+export interface AnilibertyInfoMeta {
   type: string | null;
   season: string | null;
   year: number | null;
@@ -17,7 +17,7 @@ export interface ALInfoMeta {
   genres: string[] | null;
 }
 
-export interface ALEpisodeMeta {
+export interface AnilibertyEpisodeMeta {
   hls_480: string | null;
   hls_720: string | null;
   hls_1080: string | null;

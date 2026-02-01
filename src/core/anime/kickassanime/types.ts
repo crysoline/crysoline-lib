@@ -1,9 +1,9 @@
-export interface KEpisodeLanguage {
+export interface KickAssAnimeEpisodeLanguage {
   id: string;
   name: string;
 }
 
-export interface KFormatImage {
+export interface KickAssAnimeFormatImage {
   aspectRatio: number | null;
   jpeg: {
     sm: string;
@@ -15,7 +15,7 @@ export interface KFormatImage {
   };
 }
 
-export interface KSearchMeta {
+export interface KickAssAnimeSearchMeta {
   slug: string | null;
   year: number | null;
   status: string | null;
@@ -25,7 +25,7 @@ export interface KSearchMeta {
   locales: string[];
 }
 
-export interface KInfoMeta {
+export interface KickAssAnimeInfoMeta {
   slug: string | null;
   year: number | null;
   season: string | null;
@@ -39,16 +39,16 @@ export interface KInfoMeta {
   locales: string[];
 }
 
-export interface KEpisodeMeta {
+export interface KickAssAnimeEpisodeMeta {
   episode_string: string | null;
-  languages: KEpisodeLanguage[];
+  languages: KickAssAnimeEpisodeLanguage[];
 }
 
-export interface KSourceMeta {
+export interface KickAssAnimeSourceMeta {
   episode_number: number | null;
   episode_title: string | null;
   episode_synopsis: string | null;
   language: string | null;
   duration_ms: number | null;
-  thumbnail: KFormatImage | null;
+  thumbnail: KickAssAnimeFormatImage | null;
 }

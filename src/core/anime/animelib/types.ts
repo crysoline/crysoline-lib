@@ -1,10 +1,10 @@
-export interface ALIBSearchMeta {
+export interface AnimeLibSearchMeta {
   type: string;
   status: string;
   ageRating: string;
 }
 
-export interface ALIBInfoMeta {
+export interface AnimeLibInfoMeta {
   type: string;
   status: string;
   ageRating: string;

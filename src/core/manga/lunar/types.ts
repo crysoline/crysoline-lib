@@ -1,4 +1,4 @@
-export interface LMangaSearchMeta {
+export interface LunarMangaSearchMeta {
   format: string;
   startDate: {
     year: number;
@@ -13,7 +13,7 @@ export interface LMangaSearchMeta {
   type: string;
 }
 
-export interface LMangaInfoMeta {
+export interface LunarMangaInfoMeta {
   format: string;
   status: string;
   chapters: number;

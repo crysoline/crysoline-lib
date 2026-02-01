@@ -12,13 +12,13 @@ export enum MediaFormat {
   UNKNOWN = 'UNKNOWN',
 }
 
-export interface MDXSearchMeta {
+export interface MangaDexSearchMeta {
   synonyms?: (string | undefined)[] | null;
   format: MediaFormat;
   year?: number;
 }
 
-export interface MDXInfoMeta {
+export interface MangaDexInfoMeta {
   format: string;
   year: number | null;
   artwork: Array<{ image: string; providerId: string; type: string }>;

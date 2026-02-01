@@ -1,17 +1,17 @@
-export interface LLanguage {
+export interface LunarLanguage {
   poster_url: string;
   description: string;
   language: string;
 }
 
-export interface LHost {
+export interface LunarHost {
   hoster: string;
   language: string;
   owned: boolean;
   redirect_uri: string;
 }
 
-export interface LInfoMeta {
+export interface LunarInfoMeta {
   alt_titles: string[];
   start_year: number;
   end_year: number;
@@ -21,7 +21,7 @@ export interface LInfoMeta {
   search: string;
 }
 
-export interface LSearchMeta {
+export interface LunarSearchMeta {
   alt_titles: string[];
   start_year: number;
   end_year: number;
@@ -30,14 +30,14 @@ export interface LSearchMeta {
   search: string;
 }
 
-export interface LEpisodeMeta {
+export interface LunarEpisodeMeta {
   season: number;
-  languages: LLanguage[];
+  languages: LunarLanguage[];
 }
 
-export interface LSourcesMeta {
+export interface LunarSourcesMeta {
   title: string;
   episode: number;
   season: number;
-  hoster: LHost;
+  hoster: LunarHost;
 }

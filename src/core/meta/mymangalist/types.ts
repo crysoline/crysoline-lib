@@ -1,37 +1,37 @@
-export interface MMSearchMeta {
+export interface MyMangaListSearchMeta {
   type: string | null;
   score: string | null;
   members: string | null;
   volumes: string | null;
 }
 
-export interface MMLink {
+export interface MyMangaListLink {
   label: string | null;
   url: string | null;
 }
 
-export interface MMLRelation {
+export interface MyMangaListRelation {
   id: number | null;
   image: string | null;
   title: string | null;
   relationType: string | null;
 }
 
-export interface MMLCharacter {
+export interface MyMangaListCharacter {
   id: number | null;
   image: string | null;
   name: string | null;
   role: string | null;
 }
 
-export interface MMLVoiceActor {
+export interface MyMangaListVoiceActor {
   id: number | null;
   image: string | null;
   name: string | null;
   language: string | null;
 }
 
-export interface MMLInfoMeta {
+export interface MyMangaListInfoMeta {
   moreInfo: string | null;
   score: string | null;
   rank: string | null;
@@ -47,7 +47,7 @@ export interface MMLInfoMeta {
   themes: string[] | null;
   authors: string[] | null;
   favorites: string | null;
-  externalLinks: MMLink[] | null;
-  relations: MMLRelation[] | null;
-  characters: MMLCharacter[] | null;
+  externalLinks: MyMangaListLink[] | null;
+  relations: MyMangaListRelation[] | null;
+  characters: MyMangaListCharacter[] | null;
 }

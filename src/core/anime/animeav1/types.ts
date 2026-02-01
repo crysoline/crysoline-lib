@@ -1,8 +1,8 @@
-export interface AVSearchMeta {
+export interface AnimeAV1SearchMeta {
   slug: string;
 }
 
-export interface AVInfoMeta {
+export interface AnimeAV1InfoMeta {
   season: string;
   status: string;
   format: string;
@@ -11,10 +11,10 @@ export interface AVInfoMeta {
   endDate: string;
 }
 
-export interface AVEpisodeMeta {
+export interface AnimeAV1EpisodeMeta {
   url: string;
 }
 
-export interface AVSourceMeta {
+export interface AnimeAV1SourceMeta {
   poster?: string | null;
 }
