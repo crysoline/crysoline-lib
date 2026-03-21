@@ -17,6 +17,7 @@ import { AnimeParadise } from './animeparadise';
 import { AniZone } from './anizone';
 import { HiAnime } from './hianime';
 import { KickAssAnime } from './kickassanime';
+import { Kodik } from './kodik';
 import { LunarAnime } from './lunar';
 import { UniqueStream } from './uniquestream';
 
@@ -40,6 +41,7 @@ export const Anime = {
   AniZone,
   HiAnime,
   KickAssAnime,
+  Kodik,
   LunarAnime,
   UniqueStream,
 };
@@ -63,5 +65,6 @@ export * from './animeparadise';
 export * from './anizone';
 export * from './hianime';
 export * from './kickassanime';
+export * from './kodik';
 export * from './lunar';
 export * from './uniquestream';

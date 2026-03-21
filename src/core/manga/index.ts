@@ -1,4 +1,5 @@
 import { OneManga } from './1manga';
+import { Atsumaru } from './atsumaru';
 import { Comix } from './comix';
 import { LunarManga } from './lunar';
 import { MangaDex } from './mangadex';
@@ -21,6 +22,7 @@ import { WeebCentral } from './weebcentral';
 
 export const Manga = {
   OneManga,
+  Atsumaru,
   Comix,
   LunarManga,
   MangaDex,
@@ -45,6 +47,7 @@ export const Manga = {
 };
 
 export * from './1manga';
+export * from './atsumaru';
 export * from './comix';
 export * from './lunar';
 export * from './mangadex';
